@@ -1,0 +1,130 @@
+{
+  "x": 0,
+  "y": 0,
+  "width": 1280,
+  "height": 720,
+  "type": "container",
+  "children": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 640,
+      "height": 720,
+      "type": "container",
+      "children": [
+        {
+          "x": 80,
+          "y": 290,
+          "width": 480,
+          "height": 48,
+          "type": "text",
+          "text": "Introduction to Auto Layout"
+        },
+        {
+          "x": 80,
+          "y": 350,
+          "width": 500,
+          "height": 160,
+          "type": "text",
+          "text": "Auto Layout is a property you can add to frames and components. It lets your designs grow, shrink, and reflow as content changes. Use Auto Layout to add layers, accommodate long text, and maintain alignment across devices."
+        }
+      ]
+    },
+    {
+      "x": 640,
+      "y": 0,
+      "width": 640,
+      "height": 720,
+      "type": "container",
+      "children": [
+        {
+          "x": 780,
+          "y": 130,
+          "width": 380,
+          "height": 460,
+          "type": "container",
+          "children": [
+            {
+              "x": 796,
+              "y": 146,
+              "width": 348,
+              "height": 200,
+              "type": "image"
+            },
+            {
+              "x": 796,
+              "y": 370,
+              "width": 348,
+              "height": 36,
+              "type": "container",
+              "children": [
+                {
+                  "x": 796,
+                  "y": 370,
+                  "width": 120,
+                  "height": 36,
+                  "type": "container",
+                  "children": [
+                    {
+                      "x": 796,
+                      "y": 374,
+                      "width": 28,
+                      "height": 28,
+                      "type": "icon"
+                    },
+                    {
+                      "x": 832,
+                      "y": 374,
+                      "width": 60,
+                      "height": 28,
+                      "type": "text",
+                      "text": "Figma"
+                    }
+                  ]
+                },
+                {
+                  "x": 980,
+                  "y": 370,
+                  "width": 120,
+                  "height": 36,
+                  "type": "container",
+                  "children": [
+                    {
+                      "x": 980,
+                      "y": 374,
+                      "width": 28,
+                      "height": 28,
+                      "type": "icon"
+                    },
+                    {
+                      "x": 1020,
+                      "y": 374,
+                      "width": 28,
+                      "height": 28,
+                      "type": "icon"
+                    },
+                    {
+                      "x": 1060,
+                      "y": 374,
+                      "width": 28,
+                      "height": 28,
+                      "type": "icon"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "x": 796,
+              "y": 422,
+              "width": 348,
+              "height": 60,
+              "type": "text",
+              "text": "Hi, I'm a card with a user name, avatar, caption, and a few icons."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "ssim": 0.9995,
+  "absdiff": 0.9633,
+  "origin_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "rendered_size": {
+    "width": 1280,
+    "height": 720
+  },
+  "metadata": {
+    "top_bar_height": 0,
+    "real_homebar_height": 0,
+    "is_translucent_top_bar": false,
+    "original_width": 1280,
+    "original_height": 720,
+    "render_height": 720,
+    "top_crop": 0,
+    "bottom_crop": 0
+  }
+}

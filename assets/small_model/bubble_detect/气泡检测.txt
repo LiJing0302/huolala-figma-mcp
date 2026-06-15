@@ -1,0 +1,2 @@
+0 redpoint
+1 bubble
