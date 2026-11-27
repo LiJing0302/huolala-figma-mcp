@@ -14,6 +14,7 @@ class TextStyleConverter:
         font_size = cls._resolve_font_size(figma_style.get("fontSize"))
         cls.get_style_with_style(style, figma_style)
         cls._resolve_text_overflow(style, figma_style, font_size, node)
+        cls._resolve_text_wrap_default(style, figma_style, font_size, node)
         style.color = cls._resolve_text_color(node.get("fills", []))
 
         return style
@@ -70,6 +71,33 @@ class TextStyleConverter:
             style.text_overflow = "ellipsis"
             style.overflow = "hidden"
             style.white_space = "nowrap"
+
+    @staticmethod
+    def _resolve_text_wrap_default(style: dsl_model.Style, figma_style: Dict[str, Any], font_size: float, node: Dict[str, Any]):
+        # 默认换行策略：单行文本 nowrap，多行文本 normal。
+        # _resolve_text_overflow 只处理开了截断（textTruncation=ENDING）的文本，
+        # 普通文本此前 white_space 一直为空，生成 HTML 后浏览器按 normal 处理：
+        # 父容器宽度按设计稿几何算死、浏览器字体度量又偏大时就会溢出换行
+        # （金额类单行文本最常见）。这里按 Figma 侧实际行数补默认值；
+        # 已被截断逻辑设置过 white_space 的不覆盖。
+        if style.white_space:
+            return
+        if not font_size:
+            return
+        characters = node.get("characters") or ""
+        if "\n" in characters:
+            style.white_space = "normal"
+            return
+        # 宽度随内容生长的文本框在 Figma 里不会换行
+        if node.get("textAutoResize") == "WIDTH_AND_HEIGHT":
+            style.white_space = "nowrap"
+            return
+        render_height = NodeBoxUtils.get_node_height_use_bounding(node.get("absoluteRenderBounds"))
+        if not render_height:
+            return
+        # 行数估算口径与 _resolve_text_overflow 保持一致：渲染高度 / 字号
+        line_render = int(render_height / font_size)
+        style.white_space = "nowrap" if line_render <= 1 else "normal"
 
     @staticmethod
     def _resolve_text_indent(paragraph_indent: Optional[int]) -> Optional[str]:
